@@ -7,6 +7,6 @@
  */
 int main(void)
 {
-        line_handler();
-        return (0);
+	line_handler();
+	return (0);
 }

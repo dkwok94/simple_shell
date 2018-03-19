@@ -7,11 +7,11 @@
  */
 int _strlen(char *buf)
 {
-        int i = 0;
+	int i = 0;
 
-        while (buf[i] != '\0')
-        {
-                i++;
-        }
-        return (i);
+	while (buf[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
 }

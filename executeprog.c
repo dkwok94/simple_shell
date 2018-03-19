@@ -7,26 +7,26 @@
  */
 int executeprog(char **array)
 {
-        pid_t my_pid;
-        int signal;
-        struct stat status;
+	pid_t my_pid;
+	int signal;
+	struct stat status;
 
-        if (stat(array[0], &status) == -1)
-        {
-                write(1, "./shell: No such file or directory\n", 35);
-                return (-1);
-        }
-        my_pid = fork();
-        if (my_pid == -1)
-        {
-                write(1, "Error", 5);
-                return (-1);
-        }
+	if (stat(array[0], &status) == -1)
+	{
+		write(1, "./shell: No such file or directory\n", 35);
+		return (-1);
+	}
+	my_pid = fork();
+	if (my_pid == -1)
+	{
+		write(1, "Error", 5);
+		return (-1);
+	}
 
-        if (my_pid == 0)
-                execve(array[0], array, NULL);
-        else
-                wait(&signal);
+	if (my_pid == 0)
+		execve(array[0], array, NULL);
+	else
+		wait(&signal);
 
-        return (0);
+	return (0);
 }

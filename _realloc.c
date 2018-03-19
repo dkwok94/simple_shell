@@ -35,30 +35,29 @@ char **_realloccharss(char **ptr, int n)
 /**
  *_reallocchar - reallocates memory for char
  *@ptr: a pointer to an array
- *@n: number of elements to add/subtract
  *
  *Return: pointer to new memory
  */
 char *_reallocchar(char *ptr)
 {
-        int i = 0;
-        char *newptr;
+	int i = 0;
+	char *newptr;
 
-        if (ptr == NULL)
-                return (NULL);
+	if (ptr == NULL)
+		return (NULL);
 
-        while (*(ptr + i) != '\0')
-                i++;
+	while (*(ptr + i) != '\0')
+		i++;
 
-        newptr = malloc(sizeof(char) * i + 1);
-        if (newptr == NULL)
-                return (NULL);
-        i = 0;
-        while (*(ptr + i) != '\0')
-        {
-                *(newptr + i) = *(ptr + i);
-                i++;
-        }
-        *(newptr + i) = '\0';
-        return (newptr);
+	newptr = malloc(sizeof(char) * i + 1);
+	if (newptr == NULL)
+		return (NULL);
+	i = 0;
+	while (*(ptr + i) != '\0')
+	{
+		*(newptr + i) = *(ptr + i);
+		i++;
+	}
+	*(newptr + i) = '\0';
+	return (newptr);
 }
