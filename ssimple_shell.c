@@ -23,6 +23,7 @@ int line_handler(void)
 		characters = getline(&line, &len, stdin);
 		if (characters == EOF)
 		{
+			free(line);
 			write(1, "\n", 1);
 			return (0);
 		}
@@ -43,6 +44,7 @@ int line_handler(void)
 		free(newline);
 		free(tokenarray);
 	}
+	free(line);
 	return (0);
 }
 /**
