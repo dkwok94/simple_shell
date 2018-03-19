@@ -92,7 +92,13 @@ int executeprog(char **array)
 {
 	pid_t my_pid;
 	int signal;
+	struct stat status;
 
+	if (stat(array[0], &status) == -1)
+	{
+		write(1, "./shell: No such file or directory\n", 35);
+		return (-1);
+	}
 	my_pid = fork();
 	if (my_pid == -1)
 	{
