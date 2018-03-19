@@ -20,57 +20,8 @@ char *_getenv(const char *name)
 		i++;
 		j = 0;
 	}
+	write(1, "Environment variable not found", 30);
 	return (NULL);
-}
-/**
- *_strlen - calculates the length of a string
- *@buf: buffer to count length of strings
- *
- *Return: the length of the string
- */
-int _strlen(char *buf)
-{
-	int i = 0;
-
-	while (buf[i] != '\0')
-	{
-		i++;
-	}
-	return (i);
-}
-/**
- *printpath - prints each entry of path
- *@path: pointer to the path variable
- *
- *Return: 0 upon success
- */
-int printpath(char *path)
-{
-	char buf[1024];
-	int i = 0, j = 0, length;
-	while (path[i] != '\0')
-	{
-		if (i == 0)
-		{
-			while (path[i] != '=')
-				i++;
-			i++;
-		}
-		while (path[i] != ':' && path[i] != '\0')
-		{
-			buf[j] = path[i];
-			i++;
-			j++;
-		}
-		if (path[i] == ':')
-			i++;
-		buf[j++] = '\n';
-		buf[j] = '\0';
-		length = _strlen(buf);
-		write(1, buf, length);
-		j = 0;
-	}
-	return (0);
 }
 /**
  *main - entry point

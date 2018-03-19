@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
+#include "holberton.h"
 /**
  *tokens - splits a string into tokens
  *@str: the string to split
@@ -62,7 +63,7 @@ int main(void)
 	int i = 0, strlen;
 	char *str, *strcpy;
 
-	str = "Hello World my name is Derek!";
+	str = "/bin/rm #_printpath.c#";
 	strlen = length(str);
 	strcpy = malloc(strlen);
 	if (strcpy == NULL)

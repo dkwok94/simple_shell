@@ -8,6 +8,9 @@
 #include <string.h>
 #include <stdlib.h>
 int line_handler(void);
+int _strlen(char *buf);
+int printpath(char *path);
+char *_getenv(const char *name);
 char **tokensplit(char *line);
 int executeprog(char **array);
 char *_getenv(const char *name);

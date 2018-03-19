@@ -1,23 +1,12 @@
-#define _GNU_SOURCE
-#include <stdio.h>
-#include <stdlib.h>
-
+#include "holberton.h"
+/**
+ *main - entry point
+ *
+ *Description: simple shell line handler
+ *Return: 0 on success
+ */
 int main(void)
 {
-	FILE *fp;
-	char *line = NULL;
-	size_t len = 0;
-	ssize_t read;
-
-	fp = fopen("/etc/passwd", "r");
-	if (fp == NULL)
-		exit(EXIT_FAILURE);
-
-	while ((read = getline(&line, &len, fp)) != -1) {
-		printf("Retrieved line of length %zu :\n", read);
-		printf("%s", line);
-	}
-
-	free(line);
-	exit(EXIT_SUCCESS);
+        line_handler();
+        return (0);
 }

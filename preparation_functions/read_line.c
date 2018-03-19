@@ -1,6 +1,7 @@
 #include <stdio.h>
 #include <stdlib.h>
 #include <unistd.h>
+#include "holberton.h"
 /**
  *length - finds the length of a string
  *@line: the line to calculate length of
