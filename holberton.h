@@ -10,4 +10,7 @@
 int line_handler(void);
 char **tokensplit(char *line);
 int executeprog(char **array);
+char *_getenv(const char *name);
+char **_realloccharss(char **ptr, int n);
+char *_reallocchar(char *ptr);
 #endif

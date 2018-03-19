@@ -8,24 +8,41 @@
  */
 int line_handler(void)
 {
-	char *line = NULL;
-	size_t len = 0;
+	char *line, *newline;
+	size_t len;
 	ssize_t characters = 0;
 	char **tokenarray;
 	int i;
 
 	while (characters != -1)
 	{
+		line = NULL;
+		len = 0;
+
 		write(1, "$ ", 2);
 		characters = getline(&line, &len, stdin);
+		if (characters == EOF)
+		{
+			write(1, "\n", 1);
+			return (0);
+		}
 		i = 0;
 		while (*(line + i) != '\n')
 			i++;
 		*(line + i) = '\0';
-		tokenarray = tokensplit(line);
+		newline = _reallocchar(line);
+		tokenarray = tokensplit(newline);
 		executeprog(tokenarray);
+		/*while (tokenarray[i] != NULL)
+		{
+			free(tokenarray[i]);
+			i++;
+			}
+			free(tokenarray[i]);*/
+		free(line);
+		free(newline);
+		free(tokenarray);
 	}
-	free(line);
 	return (0);
 }
 /**
@@ -85,7 +102,7 @@ int executeprog(char **array)
 		execve(array[0], array, NULL);
 	else
 		wait(&signal);
-	free(array);
+
 	return (0);
 }
 
