@@ -1,5 +1,10 @@
 #include "holberton.h"
-
+/**
+ *create_ll - creates an empty linked list the size of the path variable
+ *@str: the PATH variable
+ *
+ *Return: a pointer to the empty array
+ */
 path_t *create_ll(char *str)
 {
 	int i = 0;
@@ -30,18 +35,34 @@ path_t *create_ll(char *str)
 	return (head);
 }
 
+/**
+ *main - entry point
+ *
+ *Description: test the linked list code
+ *Return: 0 on success
+ */
 int main(void)
 {
-	path_t *head;
+	path_t *head, *filledlist, *tmp;
 	int nodes = 0;
+	char *copy, *str;
 
-	head = create_ll("/bin/usr:/bin/lol:/bin:/hello:/hi");
+	str = "/bin/usr:/bin/lol:/bin:/hello:/hi";
+	copy = _strdup(str);
+	head = create_ll(copy);
+	tmp = head;
 
-	while (head != NULL)
+	while (tmp != NULL)
 	{
 		nodes++;
-		head = head->next;
+		tmp = tmp->next;
 	}
 	printf("NUMBER OF NODES: %d\n", nodes);
+	filledlist = fill_list(copy, head);
+	while (filledlist != NULL)
+	{
+		printf("%s\n", filledlist->directory);
+		filledlist = filledlist->next;
+	}
 	return (0);
 }

@@ -9,13 +9,15 @@
 #include <stdlib.h>
 #define DELIMS " \t\n\r\v\f"
 
-/**struct path_s - linked list structure for PATH variable
+/**
+ *struct path_s - linked list structure for PATH variable
  *@directory: directory to search
  *@next: pointer to the next node
  *
  *Description: singly linked list node structure for PATH variable
  */
-typedef struct path_s {
+typedef struct path_s
+{
 	char *directory;
 	struct path_s *next;
 } path_t;
@@ -25,7 +27,9 @@ int _strlen(char *buf);
 int printpath(char *path);
 void print_path(char *str);
 int _strcmp(char *s1, char *s2);
+char *_strdup(char *str);
 path_t *create_ll(char *str);
+path_t *fill_list(char *str, path_t *list);
 char *_getenv(const char *name);
 char **tokensplit(char *line);
 int executeprog(char **array);
