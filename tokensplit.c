@@ -23,11 +23,11 @@ char **tokensplit(char *line)
 	tokenarray = malloc(sizeof(char *) * tokencount + 1);
 	if (tokenarray == NULL)
 		return (NULL);
-	token = strtok(line, " ");
+	token = strtok(line, DELIMS);
 	while (token != NULL)
 	{
 		*(tokenarray + i) = token;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, DELIMS);
 		i++;
 	}
 	*(tokenarray + i) = NULL;

@@ -12,25 +12,20 @@ int line_handler(void)
 	size_t len;
 	ssize_t characters = 0;
 	char **tokenarray;
-	int i;
 
-	while (characters != -1)
+	while (1)
 	{
 		line = NULL;
 		len = 0;
 
-		write(1, "$ ", 2);
+		write(STDOUT_FILENO, "$ ", 2);
 		characters = getline(&line, &len, stdin);
-		if (characters == EOF)
+		if (characters == EOF && characters == -1)
 		{
 			free(line);
-			write(1, "\n", 1);
+			write(STDOUT_FILENO, "\n", 1);
 			return (0);
 		}
-		i = 0;
-		while (*(line + i) != '\n')
-			i++;
-		*(line + i) = '\0';
 		newline = _reallocchar(line);
 		tokenarray = tokensplit(newline);
 		executeprog(tokenarray);
