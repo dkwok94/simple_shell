@@ -26,13 +26,6 @@ int line_handler(void)
 			write(STDOUT_FILENO, "\n", 1);
 			return (0);
 		}
-<<<<<<< HEAD
-		i = 0;
-		while (line[i] != '\n')
-			i++;
-		line[i] = '\0';
-=======
->>>>>>> a7f7cd47a3ed10dd614430455b69c6caf8ffda23
 		newline = _reallocchar(line);
 		tokenarray = tokensplit(newline);
 		executeprog(tokenarray);
