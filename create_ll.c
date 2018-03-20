@@ -40,7 +40,7 @@ path_t *create_ll(char *str)
  *
  *Description: test the linked list code
  *Return: 0 on success
- */
+ *
 int main(void)
 {
 	path_t *head, *filledlist, *tmp;
@@ -66,3 +66,4 @@ int main(void)
 	}
 	return (0);
 }
+*/

@@ -28,6 +28,8 @@ int printpath(char *path);
 void print_path(char *str);
 int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
+char *str_concat(char *s1, char *s2);
+char *_concat(char *concatenate, char *s1, char *s2);
 path_t *create_ll(char *str);
 path_t *fill_list(char *str, path_t *list);
 char *_getenv(const char *name);

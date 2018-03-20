@@ -36,25 +36,6 @@ char *str_concat(char *s1, char *s2)
 }
 
 /**
- *_strlen - calculates the length of a string
- *@str: string to calculate the length of
- *
- *Return: length of string
- */
-int _strlen(char *str)
-{
-	int i = 0;
-	int length = 0;
-
-	while (*(str + i) != '\0')
-	{
-		length++;
-		i++;
-	}
-	return (length);
-}
-
-/**
  *_concat - concatenates two strings
  *@concatenate: memory space to concatenate the strings
  *@s1: string 1

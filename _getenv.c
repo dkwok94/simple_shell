@@ -27,7 +27,6 @@ char *_getenv(const char *name)
 	return (NULL);
 }
 
-/*
 /**
  *main - entry point
  *
@@ -64,4 +63,5 @@ int main(void)
 
 	print_path(envvar);
 	return (0);
-}*/
+}
+*/
