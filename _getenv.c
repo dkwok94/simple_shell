@@ -16,19 +16,23 @@ char *_getenv(const char *name)
 		while (environ[i][j] == name[j])
 			j++;
 		if (environ[i][j] == '=')
-			return (environ[i]);
+		{
+			j++;
+			return (&(environ[i][j]));
+		}
 		i++;
 		j = 0;
 	}
-	write(1, "Environment variable not found", 30);
+	write(STDOUT_FILENO, "Environment variable not found", 30);
 	return (NULL);
 }
+
 /**
  *main - entry point
  *
  *Description: Tests the code
  *Return: 0 when successful, 1 if failed
- */
+ *
 int main(void)
 {
 	char *envvar;
@@ -57,6 +61,7 @@ int main(void)
 	}
 	printf("Environmental variable: %s\n", envvar);
 
-	printpath(envvar);
+	print_path(envvar);
 	return (0);
 }
+*/

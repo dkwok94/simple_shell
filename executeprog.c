@@ -13,13 +13,14 @@ int executeprog(char **array)
 
 	if (stat(array[0], &status) == -1)
 	{
-		write(1, "./shell: No such file or directory\n", 35);
+		write(STDOUT_FILENO, "./shell: No such file or directory\n", 35);
 		return (-1);
 	}
+	/*check_builtins(array);*/
 	my_pid = fork();
 	if (my_pid == -1)
 	{
-		write(1, "Error", 5);
+		write(STDOUT_FILENO, "Error", 5);
 		return (-1);
 	}
 

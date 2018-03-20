@@ -46,14 +46,14 @@ char *_reallocchar(char *ptr)
 	if (ptr == NULL)
 		return (NULL);
 
-	while (*(ptr + i) != '\0')
+	while (*(ptr + i) != '\n')
 		i++;
 
 	newptr = malloc(sizeof(char) * i + 1);
 	if (newptr == NULL)
 		return (NULL);
 	i = 0;
-	while (*(ptr + i) != '\0')
+	while (*(ptr + i) != '\n')
 	{
 		*(newptr + i) = *(ptr + i);
 		i++;
