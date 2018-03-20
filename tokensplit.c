@@ -12,9 +12,9 @@ char **tokensplit(char *line)
 	char **tokenarray;
 	char *token;
 
-	while (*(line + i) != '\0')
+	while (line[i] != '\0')
 	{
-		if (*(line + i) == ' ')
+		if (line[i] == ' ')
 			tokencount++;
 		i++;
 	}
@@ -26,10 +26,10 @@ char **tokensplit(char *line)
 	token = strtok(line, " ");
 	while (token != NULL)
 	{
-		*(tokenarray + i) = token;
+		tokenarray[i] = token;
 		token = strtok(NULL, " ");
 		i++;
 	}
-	*(tokenarray + i) = NULL;
-	return (tokenarray);
+	tokenarray[i] = NULL;
+	return (tokenrray);
 }

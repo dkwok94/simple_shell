@@ -28,9 +28,9 @@ int line_handler(void)
 			return (0);
 		}
 		i = 0;
-		while (*(line + i) != '\n')
+		while (line[i] != '\n')
 			i++;
-		*(line + i) = '\0';
+		line[i] = '\0';
 		newline = _reallocchar(line);
 		tokenarray = tokensplit(newline);
 		executeprog(tokenarray);
