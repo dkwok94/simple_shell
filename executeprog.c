@@ -8,14 +8,10 @@
 int executeprog(char **array)
 {
 	pid_t my_pid;
+	char *concat;
 	int signal;
 	struct stat status;
 
-	if (stat(array[0], &status) == -1)
-	{
-		write(STDOUT_FILENO, "./shell: No such file or directory\n", 35);
-		return (-1);
-	}
 	/*check_builtins(array);*/
 	my_pid = fork();
 	if (my_pid == -1)
@@ -25,7 +21,28 @@ int executeprog(char **array)
 	}
 
 	if (my_pid == 0)
-		execve(array[0], array, NULL);
+	{
+		if (array[0][0] == '/')
+		{
+			if (stat(array[0], &status) == -1)
+			{
+				write(STDOUT_FILENO, "./shell: No such file or directory\n", 35);
+				return (-1);
+			}
+
+			execve(array[0], array, NULL);
+		}
+		else
+		{
+			concat = path_handler(array[0]);
+			if (concat == NULL)
+			{
+				write(STDOUT_FILENO, "./shell: No such file or directory\n", 35);
+				return (-1);
+			}
+			execve(concat, array, NULL);
+		}
+	}
 	else
 		wait(&signal);
 
