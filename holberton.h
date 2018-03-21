@@ -32,10 +32,12 @@ char *str_concat(char *s1, char *s2);
 char *_concat(char *concatenate, char *s1, char *s2);
 path_t *create_ll(char *str);
 path_t *fill_list(char *str, path_t *list);
+void free_list(path_t *head);
 char *_getenv(const char *name);
 char **tokensplit(char *line);
 int executeprog(char **array);
 char *_getenv(const char *name);
 char **_realloccharss(char **ptr, int n);
 char *_reallocchar(char *ptr);
+char *path_handler(char *str);
 #endif

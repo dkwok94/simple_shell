@@ -24,7 +24,7 @@ path_t *fill_list(char *str, path_t *list)
 		{
 			if (str[i] != '\0')
 				i++;
-			dir = malloc(sizeof(char) * dirlen + 1);
+			dir = malloc(sizeof(char) * dirlen + 2);
 			if (dir == NULL)
 				return (NULL);
 			while (str[stcnt] != ':' && str[stcnt] != '\0')
@@ -33,6 +33,7 @@ path_t *fill_list(char *str, path_t *list)
 				stcnt++;
 				j++;
 			}
+			dir[j++] = '/';
 			dir[j] = '\0';
 			stcnt = i;
 			j = 0;
