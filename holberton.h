@@ -32,6 +32,7 @@ char *_concat(char *concatenate, char *s1, char *s2);
 path_t *create_ll(char *str);
 path_t *fill_list(char *str, path_t *list);
 void free_list(path_t *head);
+int control_D_op(char *line);
 char *_getenv(const char *name);
 char **tokensplit(char *line);
 int executeprog(char **array, char **env);

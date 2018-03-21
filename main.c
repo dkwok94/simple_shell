@@ -19,15 +19,11 @@ int main(int ac, char **av, char **env)
 	{
 		line = NULL;
 		len = 0;
-
-		write(STDOUT_FILENO, "$ ", 2);
+		if (isatty(0))
+			write(STDOUT_FILENO, "$ ", 2);
 		characters = getline(&line, &len, stdin);
 		if (characters == EOF && characters == -1)
-		{
-			free(line);
-			write(STDOUT_FILENO, "\n", 1);
-			return (0);
-		}
+			return (control_D_op(line));
 		newline = _reallocchar(line);
 		tokenarray = tokensplit(newline);
 		executeprog(tokenarray, env);
