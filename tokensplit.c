@@ -10,11 +10,13 @@ char **tokensplit(char *line)
 	int i = 0;
 	int tokencount = 1;
 	char **tokenarray;
-	char *token;
+	char *token, *tokencopy;
 
+	if (line == NULL)
+		return (NULL);
 	while (*(line + i) != '\0')
 	{
-		if (*(line + i) == ' ')
+		if (line[i] != ' ' && line[i + 1] == ' ')
 			tokencount++;
 		i++;
 	}
@@ -26,7 +28,14 @@ char **tokensplit(char *line)
 	token = strtok(line, DELIMS);
 	while (token != NULL)
 	{
-		*(tokenarray + i) = token;
+		tokencopy = _strdup(token);
+		if (tokencopy == NULL)
+		{
+			free(tokenarray);
+			return (NULL);
+		}
+		printf("%s\n", tokencopy);
+		*(tokenarray + i) = tokencopy;
 		token = strtok(NULL, DELIMS);
 		i++;
 	}

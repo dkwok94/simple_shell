@@ -22,11 +22,17 @@ int main(int ac, char **av, char **env)
 		if (isatty(0))
 			write(STDOUT_FILENO, "$ ", 2);
 		characters = getline(&line, &len, stdin);
+		if (line[0] == '\n' && line[1] == '\0')
+		{
+			free(line);
+			continue;
+		}
 		if (characters == EOF && characters == -1)
 			return (control_D_op(line));
 		newline = _reallocchar(line);
 		tokenarray = tokensplit(newline);
 		executeprog(tokenarray, env);
+		free_tokens(tokenarray);
 		free(line);
 		free(newline);
 		free(tokenarray);

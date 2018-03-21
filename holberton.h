@@ -7,7 +7,7 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <stdlib.h>
-#define DELIMS " \t\n\r\v\f"
+#define DELIMS " "
 
 /**
  *struct path_s - linked list structure for PATH variable
@@ -32,6 +32,7 @@ char *_concat(char *concatenate, char *s1, char *s2);
 path_t *create_ll(char *str);
 path_t *fill_list(char *str, path_t *list);
 void free_list(path_t *head);
+void free_tokens(char **tokenarray);
 int control_D_op(char *line);
 char *_getenv(const char *name);
 char **tokensplit(char *line);
