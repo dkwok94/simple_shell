@@ -31,5 +31,5 @@ char **tokensplit(char *line)
 		i++;
 	}
 	*(tokenarray + i) = NULL;
-	return (tokenrray);
+	return (tokenarray);
 }
