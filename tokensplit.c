@@ -34,7 +34,6 @@ char **tokensplit(char *line)
 			free(tokenarray);
 			return (NULL);
 		}
-		printf("%s\n", tokencopy);
 		*(tokenarray + i) = tokencopy;
 		token = strtok(NULL, DELIMS);
 		i++;
