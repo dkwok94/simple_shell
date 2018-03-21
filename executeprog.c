@@ -5,11 +5,13 @@
  *@array: the array of strings to execute
  *
  */
-void check_builtins(char **array)
+void check_builtins(char **array, char **env)
 {
+	int i = 0;
+	int length = 0;
+
 	if (_strcmp((array[0]), "exit") == 0)
 	{
-		write(STDOUT_FILENO, "Goodbye, looser!\n", 18);
 		free(array);
 		exit(0);
 	}
@@ -19,7 +21,13 @@ void check_builtins(char **array)
 	}
 	else if (_strcmp((array[0]), "env") == 0)
 	{
-		;
+		while (env[i] != NULL)
+		{
+			length = _strlen(env[i]);
+			write(STDOUT_FILENO, env[i], length);
+			write(STDOUT_FILENO, "\n", 1);
+			i++;
+		}
 	}
 }
 /**
@@ -28,14 +36,14 @@ void check_builtins(char **array)
  *
  *Return: 0 on success, -1 on failure
  */
-int executeprog(char **array)
+int executeprog(char **array, char **env)
 {
 	pid_t my_pid;
 	char *concat;
 	int signal;
 	struct stat status;
 
-	check_builtins(array);
+	check_builtins(array, env);
 	my_pid = fork();
 	if (my_pid == -1)
 	{

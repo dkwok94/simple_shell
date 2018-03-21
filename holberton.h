@@ -22,7 +22,6 @@ typedef struct path_s
 	struct path_s *next;
 } path_t;
 
-int line_handler(void);
 int _strlen(char *buf);
 int printpath(char *path);
 void print_path(char *str);
@@ -35,7 +34,7 @@ path_t *fill_list(char *str, path_t *list);
 void free_list(path_t *head);
 char *_getenv(const char *name);
 char **tokensplit(char *line);
-int executeprog(char **array);
+int executeprog(char **array, char **env);
 char *_getenv(const char *name);
 char **_realloccharss(char **ptr, int n);
 char *_reallocchar(char *ptr);
