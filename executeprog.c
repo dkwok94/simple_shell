@@ -1,4 +1,27 @@
 #include "holberton.h"
+
+/**
+ *check_builtins - implement exit, buit-in, that exits the shell
+ *@array: the array of strings to execute
+ *
+ */
+void check_builtins(char **array)
+{
+	if (_strcmp((array[0]), "exit") == 0)
+	{
+		write(STDOUT_FILENO, "Goodbye, looser!\n", 18);
+		free(array);
+		exit(0);
+	}
+	else if (_strcmp((array[0]), "cd") == 0)
+	{
+		;
+	}
+	else if (_strcmp((array[0]), "env") == 0)
+	{
+		;
+	}
+}
 /**
  *executeprog - executes a line of code in the shell
  *@array: the array of strings to execute
@@ -12,7 +35,7 @@ int executeprog(char **array)
 	int signal;
 	struct stat status;
 
-	/*check_builtins(array);*/
+	check_builtins(array);
 	my_pid = fork();
 	if (my_pid == -1)
 	{
