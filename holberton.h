@@ -7,6 +7,7 @@
 #include <sys/wait.h>
 #include <string.h>
 #include <stdlib.h>
+#include <signal.h>
 #define DELIMS " "
 
 /**
@@ -34,7 +35,8 @@ path_t *fill_list(char *str, path_t *list);
 void free_list(path_t *head);
 void free_tokens(char **tokenarray);
 void free_all(char *line, char *newline, char **tokenarray);
-int control_D_op(char *line);
+int ctrld(char *line);
+void ctrlc(int signum);
 void no_file_error(void);
 char *_getenv(const char *name);
 char **tokensplit(char *line);

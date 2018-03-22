@@ -5,10 +5,22 @@
  *
  *Return: 0 on success
  */
-int control_D_op(char *line)
+int ctrld(char *line)
 {
 	free(line);
 	if (isatty(0) == 1)
 		write(STDOUT_FILENO, "\n", 1);
 	return (0);
+}
+/**
+ *ctrlc - control C handler
+ *@signum: the signal number received
+ *
+ *Return: void
+ */
+void ctrlc(int signum)
+{
+        (void)signum;
+
+        write(STDOUT_FILENO, "\n$ ", 3);
 }

@@ -11,8 +11,7 @@
   */
 int main(int ac, char **av, char **env)
 {
-	(void)ac;
-	(void)av;
+	(void)ac, (void)av;
 	char *line, *newline;
 	size_t len;
 	ssize_t characters = 0;
@@ -23,15 +22,18 @@ int main(int ac, char **av, char **env)
 		line = NULL;
 		len = 0;
 		if (isatty(0) == 1)
+		{
 			write(STDOUT_FILENO, "$ ", 2);
+			signal(SIGINT, ctrlc);
+		}
 		characters = getline(&line, &len, stdin);
 		if (line[0] == '\n' && line[1] == '\0')
 		{
 			free(line);
 			continue;
 		}
-		if (characters == EOF && characters == -1)
-			return (control_D_op(line));
+		if (characters == EOF)
+			return (ctrld(line));
 		newline = _reallocchar(line);
 		tokenarray = tokensplit(newline);
 		executeprog(tokenarray, env);
