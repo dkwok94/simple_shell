@@ -56,21 +56,14 @@ int executeprog(char **array, char **env)
 		if (array[0][0] == '/')
 		{
 			if (stat(array[0], &status) == -1)
-			{
-				write(STDOUT_FILENO, "./shell: No such file or directory\n", 35);
-				return (-1);
-			}
-
+				no_file_error();
 			execve(array[0], array, NULL);
 		}
 		else
 		{
 			concat = path_handler(array[0]);
 			if (concat == NULL)
-			{
-				write(STDOUT_FILENO, "./shell: No such file or directory\n", 35);
-				return (-1);
-			}
+				no_file_error();
 			execve(concat, array, NULL);
 		}
 	}
