@@ -152,4 +152,3 @@ lrwxrwxrwx 1 root root       8 Dec 13  2013 ypdomainname -> hostname
 -rwxr-xr-x 1 root root    2039 Jan 10  2014 zless
 -rwxr-xr-x 1 root root    1912 Jan 10  2014 zmore
 -rwxr-xr-x 1 root root    5049 Jan 10  2014 znew
-

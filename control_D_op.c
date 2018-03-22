@@ -8,6 +8,7 @@
 int control_D_op(char *line)
 {
 	free(line);
-	write(STDOUT_FILENO, "\n", 1);
+	if (isatty(0) == 1)
+		write(STDOUT_FILENO, "\n", 1);
 	return (0);
 }

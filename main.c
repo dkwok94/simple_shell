@@ -1,6 +1,9 @@
 #include "holberton.h"
 /**
-  *line_handler - reads a line of text typed in after a prompt
+  *main - entry point for shell program
+  *@ac: the number of arguments passed
+  *@av: an array of strings of the arguments passed
+  *@env: the current environment
   *
   *Description: function will read a line, break it into tokens, and execute
   *the call, then return to main when end of file is reached
@@ -19,7 +22,8 @@ int main(int ac, char **av, char **env)
 	{
 		line = NULL;
 		len = 0;
-		if (isatty(0))
+
+		if (isatty(0) == 1)
 			write(STDOUT_FILENO, "$ ", 2);
 		characters = getline(&line, &len, stdin);
 		if (line[0] == '\n' && line[1] == '\0')
