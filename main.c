@@ -22,7 +22,6 @@ int main(int ac, char **av, char **env)
 	{
 		line = NULL;
 		len = 0;
-
 		if (isatty(0) == 1)
 			write(STDOUT_FILENO, "$ ", 2);
 		characters = getline(&line, &len, stdin);
