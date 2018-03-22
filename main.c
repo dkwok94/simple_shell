@@ -36,10 +36,7 @@ int main(int ac, char **av, char **env)
 		newline = _reallocchar(line);
 		tokenarray = tokensplit(newline);
 		executeprog(tokenarray, env);
-		free_tokens(tokenarray);
-		free(line);
-		free(newline);
-		free(tokenarray);
+		free_all(line, newline, tokenarray);
 	}
 	free(line);
 	return (0);

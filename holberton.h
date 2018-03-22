@@ -33,6 +33,7 @@ path_t *create_ll(char *str);
 path_t *fill_list(char *str, path_t *list);
 void free_list(path_t *head);
 void free_tokens(char **tokenarray);
+void free_all(char *line, char *newline, char **tokenarray);
 int control_D_op(char *line);
 void no_file_error(void);
 char *_getenv(const char *name);
