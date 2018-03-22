@@ -4,8 +4,8 @@
  *
  *Return: void
  */
-void no_file_error(void)
+void no_file_error(char **argv)
 {
-	write(STDOUT_FILENO, "./hsh: No such file or directory\n", 33);
+	perror(argv[0]);
 	_exit(0);
 }

@@ -36,7 +36,7 @@ void check_builtins(char **array, char **env)
  *
  *Return: 0 on success, -1 on failure
  */
-int executeprog(char **array, char **env)
+int executeprog(char **array, char **env, char **argv)
 {
 	pid_t my_pid;
 	char *concat;
@@ -56,14 +56,14 @@ int executeprog(char **array, char **env)
 		if (array[0][0] == '/')
 		{
 			if (stat(array[0], &status) == -1)
-				no_file_error();
+				no_file_error(argv);
 			execve(array[0], array, NULL);
 		}
 		else
 		{
 			concat = path_handler(array[0]);
 			if (concat == NULL)
-				no_file_error();
+				no_file_error(argv);
 			execve(concat, array, NULL);
 		}
 	}
