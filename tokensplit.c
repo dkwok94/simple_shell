@@ -16,7 +16,7 @@ char **tokensplit(char *line)
 		return (NULL);
 	while (*(line + i) != '\0')
 	{
-		if (line[i] != ' ' && line[i + 1] == ' ')
+		if (line[i] != ' ' && (line[i + 1] == ' ' || line[i + 1] == '\0'))
 			tokencount++;
 		i++;
 	}

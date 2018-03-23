@@ -1,14 +1,16 @@
 #include "holberton.h"
-
 /**
  *check_builtins - implement exit, buit-in, that exits the shell
  *@array: the array of strings to execute
  *
+ *Return: 0 when successfully running a builtin, 1 when builtin not found
  */
-void check_builtins(char **array, char **env)
+int check_builtins(char **array, char **env)
 {
 	int i = 0;
 	int length = 0;
+	char cwd[1024];
+	char *newdir;
 
 	if (_strcmp((array[0]), "exit") == 0)
 	{
@@ -17,7 +19,31 @@ void check_builtins(char **array, char **env)
 	}
 	else if (_strcmp((array[0]), "cd") == 0)
 	{
-		;
+		if (array[1] == NULL)
+		{
+			if(chdir(_getenv("HOME")) == -1)
+			{
+				perror("./hsh");
+				perror("cd");
+				write(STDOUT_FILENO, "can't cd to home\n", 17);
+			}
+		}
+		else
+		{
+			getcwd(cwd, 1024);
+			while (cwd[i] != '\0')
+				i++;
+			cwd[i++] = '/';
+			cwd[i] = '\0';
+			newdir = str_concat(cwd, array[1]);
+			if (chdir(newdir) == -1)
+			{
+				perror("./hsh");
+				write(STDOUT_FILENO, "can't cd into directory\n", 24);
+			}
+			free(newdir);
+		}
+		return (0);
 	}
 	else if (_strcmp((array[0]), "env") == 0)
 	{
@@ -28,7 +54,10 @@ void check_builtins(char **array, char **env)
 			write(STDOUT_FILENO, "\n", 1);
 			i++;
 		}
+		return (0);
 	}
+	else
+		return (1);
 }
 /**
  *executeprog - executes a line of code in the shell
@@ -43,7 +72,8 @@ int executeprog(char **array, char **env, char **argv)
 	int signal;
 	struct stat status;
 
-	check_builtins(array, env);
+	if (check_builtins(array, env) == 0)
+		return (0);
 	my_pid = fork();
 	if (my_pid == -1)
 	{

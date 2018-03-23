@@ -27,7 +27,7 @@ int main(int ac, char **av, char **env)
 			signal(SIGINT, ctrlc);
 		}
 		characters = getline(&line, &len, stdin);
-		if (line[0] == '\n' && line[1] == '\0')
+		if (line[0] == '\n')
 		{
 			free(line);
 			continue;
