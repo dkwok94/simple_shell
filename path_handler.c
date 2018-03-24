@@ -1,17 +1,19 @@
 #include "holberton.h"
 /**
- *path_handler - iterates through PATH variable and concatenates command into it
+ *path_handler - iterates through PATH variable and concatenates
+ *command into it
  *@str: string to concatenate
+ *@env: the environment variable
  *
  *Return: pointer to concatenated string
  */
-char *path_handler(char *str)
+char *path_handler(char *str, char **env)
 {
 	char *path, *concat;
 	path_t *list, *tmp;
 	struct stat st;
 
-	path = _getenv("PATH");
+	path = _getenv("PATH", env);
 	list = create_ll(path);
 	if (list == NULL)
 		return (NULL);

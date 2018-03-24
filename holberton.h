@@ -40,11 +40,13 @@ void free_all(char *line, char *newline, char **tokenarray);
 int ctrld(char *line);
 void ctrlc(int signum);
 void no_file_error(char **argv);
-char *_getenv(const char *name);
+int exit_op(char **array);
+int cd_op(char **array, char **env);
+int env_op(char **env);
 char **tokensplit(char *line);
 int executeprog(char **array, char **env, char **argv);
-char *_getenv(const char *name);
+char *_getenv(const char *name, char **env);
 char **_realloccharss(char **ptr, int n);
 char *_reallocchar(char *ptr);
-char *path_handler(char *str);
+char *path_handler(char *str, char **env);
 #endif
