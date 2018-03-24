@@ -7,15 +7,34 @@
  */
 int check_builtins(char **array, char **env)
 {
-	int i = 0;
+	int i = 0, j = 0, num;
 	int length = 0;
 	char cwd[1024];
 	char *newdir;
 
 	if (_strcmp((array[0]), "exit") == 0)
 	{
-		free(array);
-		exit(0);
+		if (array[1] == NULL)
+		{
+			free(array);
+			exit(0);
+		}
+
+		else
+		{
+			num = _atoi(array[1]);
+			if (num == -1)
+			{
+				write(STDOUT_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
+				while (array[1][j] != '\0')
+					j++;
+				write(STDOUT_FILENO, array[1], j);
+				write(STDOUT_FILENO, "\n", 1);
+				return (0);
+			}
+			free(array);
+			exit(num);
+		}
 	}
 	else if (_strcmp((array[0]), "cd") == 0)
 	{

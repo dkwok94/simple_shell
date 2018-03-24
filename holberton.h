@@ -31,6 +31,7 @@ int _strcmp(char *s1, char *s2);
 char *_strdup(char *str);
 char *str_concat(char *s1, char *s2);
 char *_concat(char *concatenate, char *s1, char *s2);
+int _atoi(char *s);
 path_t *create_ll(char *str);
 path_t *fill_list(char *str, path_t *list);
 void free_list(path_t *head);
