@@ -1,6 +1,77 @@
 #include "holberton.h"
-#include <stdio.h>
-#include <stdlib.h>
+/**
+ *_strcmp - compares two strings
+ *@s1: string 1
+ *@s2: string 2
+ *
+ *Return: negative difference if s1 is less than s2, positive
+ *difference if s1 is greater than s2, or 0 if equal
+ */
+int _strcmp(char *s1, char *s2)
+{
+	while ((*s1 == *s2) && *s1 != '\0' && *s2 != '\0')
+	{
+		s1++;
+		s2++;
+	}
+
+	if ((*s1 == '\0') && (*s2 == '\0'))
+		return (0);
+	else if (*s1 > *s2)
+		return ((int)(*s1 - *s2));
+	else
+		return ((int)(*s1 - *s2));
+}
+/**
+ *_strdup - returns pointer to allocated space containing copy of string
+ *@str: string that will be copied into the space
+ *
+ *Return: pointer to allocated space
+ */
+char *_strdup(char *str)
+{
+	int i = 0;
+	int length = 0;
+	char *string;
+
+	if (str == NULL)
+		return (NULL);
+
+	while (*(str + i) != '\0')
+	{
+		length++;
+		i++;
+	}
+
+	i = 0;
+	string = malloc(sizeof(char) * length + 1);
+
+	if (string == NULL)
+		return (NULL);
+
+	while (i < length + 1)
+	{
+		*(string + i) = *(str + i);
+		i++;
+	}
+	return (string);
+}
+/**
+ *_strlen - calculates the length of a string
+ *@buf: buffer to count length of strings
+ *
+ *Return: the length of the string
+ */
+int _strlen(char *buf)
+{
+	int i = 0;
+
+	while (buf[i] != '\0')
+	{
+		i++;
+	}
+	return (i);
+}
 /**
  *str_concat - concatenates two strings
  *@s1: first string
@@ -34,7 +105,6 @@ char *str_concat(char *s1, char *s2)
 
 	return (_concat(concatenate, s1, s2));
 }
-
 /**
  *_concat - concatenates two strings
  *@concatenate: memory space to concatenate the strings

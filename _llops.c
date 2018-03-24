@@ -1,5 +1,40 @@
 #include "holberton.h"
 /**
+ *create_ll - creates an empty linked list the size of the path variable
+ *@str: the PATH variable
+ *
+ *Return: a pointer to the empty array
+ */
+path_t *create_ll(char *str)
+{
+	int i = 0;
+	int nodes = 1;
+	path_t *node, *head, *tmp, *end;
+
+	tmp = malloc(sizeof(path_t));
+	head = tmp;
+
+	end = malloc(sizeof(path_t));
+	end->next = NULL;
+
+	while (str[i] != '\0')
+	{
+		if (str[i] == ':')
+			nodes++;
+		i++;
+	}
+
+	while ((nodes - 2) > 0)
+	{
+		node = malloc(sizeof(path_t));
+		tmp->next = node;
+		tmp = tmp->next;
+		nodes--;
+	}
+	tmp->next = end;
+	return (head);
+}
+/**
  *fill_list - fills an empty linked list with PATH variable contents
  *@str: the PATH variable
  *@list: pointer to the empty linked list
