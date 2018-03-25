@@ -13,36 +13,38 @@ The repository contains the following files:
 | main.c | The main function |
 | holberton.h   | Header file containing all function prototypes and struct declaration |
 | executeprog.c | Containing function, that execute a line of code in the shell as well as function, that checks for build-ins |
-| path_handler.c | Iterates through PATH variable and concatinates command into it |File	        Description
+| path_handler.c | Iterates through PATH variable and concatinates command into it |
+| tokenspit.c | Splits a line into tokens and stores into a char array |
 
-tokenspit.c     Splits a line into tokens and stores into a char array
-Function Descriptions
-Function Description
-int _strlen(char *buf);		calculates the lenght of the string
-int printpath(char *path);
-void print_path(char *str);
-int _strcmp(char *s1, char *s2);
-char *_strdup(char *str);
-char *str_concat(char *s1, char *s2);
-char *_concat(char *concatenate, char *s1, char *s2);
-int _atoi(char *s);
-path_t *create_ll(char *str);
-path_t *fill_list(char *str, path_t *list);
-void free_list(path_t *head);
-void free_tokens(char **tokenarray);
-void free_all(char *line, char *newline, char **tokenarray);
-int ctrld(char *line);
-void ctrlc(int signum);
-void no_file_error(char **argv);
-int exit_op(char **array);
-int cd_op(char **array, char **env);
-int env_op(char **env);
-char **tokensplit(char *line);
-int executeprog(char **array, char **env, char **argv);
-char *_getenv(const char *name, char **env);
-char **_realloccharss(char **ptr, int n);
-char *_reallocchar(char *ptr);
-char *path_handler(char *str, char **env);
+### Function Descriptions
+
+| **Function** | **Description** |
+| -------------- | ----------------- |
+|int _strlen(char *buf)| Calculates the lenght of the string|
+|int printpath(char *path)||
+|void print_path(char *str)||
+|int _strcmp(char *s1, char *s2)||
+|char *_strdup(char *str)||
+|char *str_concat(char *s1, char *s2)||
+|char *_concat(char *concatenate, char *s1, char *s2)||
+|int _atoi(char *s)||
+|path_t *create_ll(char *str)||
+|path_t *fill_list(char *str, path_t *list)||
+|void free_list(path_t *head)||
+|void free_tokens(char **tokenarray)||
+|void free_all(char *line, char *newline, char **tokenarray)||
+|int ctrld(char *line)||
+|void ctrlc(int signum)||
+|void no_file_error(char **argv)||
+|int exit_op(char **array)||
+|int cd_op(char **array, char **env)||
+|int env_op(char **env)||
+|char **tokensplit(char *line)||
+|int executeprog(char **array, char **env, char **argv)||
+|char *_getenv(const char *name, char **env)||
+|char **_realloccharss(char **ptr, int n)||
+|char *_reallocchar(char *ptr)||
+|char *path_handler(char *str, char **env)||
 
 Usage and Installation
 Clone the repository, compile with comliation flags, listed below, then run the executable.
