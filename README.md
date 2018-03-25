@@ -1,4 +1,4 @@
-![shell example gif](https://github.com/dkwok94/simple_shell/blob/master/shell.gif)
+![shell example gif](https://github.com/dkwok94/simple_shell/blob/master/shell_example.gif)
 ## Simple_shell
 ### Description
 Shell is a command programming language that executes commands read from a terminal or a file.
