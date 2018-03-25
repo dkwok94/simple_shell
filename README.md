@@ -46,14 +46,59 @@ The repository contains the following files:
 |char *_reallocchar(char *ptr)||
 |char *path_handler(char *str, char **env)||
 
-Usage and Installation
+### Usage and Installation
 Clone the repository, compile with comliation flags, listed below, then run the executable.
-
+```
 $ git clone https://github.com/dkwok94/simple_shell.git
-Compilation
-This code was compiled this way: $ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh
+```
+### Compilation
+This code was compiled this way: 
+` $ gcc -Wall -Werror -Wextra -pedantic *.c -o hsh `
 
-Example code
+###### Example code
+```
+int main(int ac, char **av, char **env)
+{
+        (void)ac, (void)av;
+        char *line, *newline;
+        size_t len;
+        ssize_t characters = 0;
+        char **tokenarray;
+
+        while (1)
+        {
+                line = NULL;
+                len = 0;
+                if (isatty(0) == 1)
+                {
+                 	write(STDOUT_FILENO, "$ ", 2);
+			signal(SIGINT, ctrlc);
+		}
+                characters = getline(&line, &len, stdin);
+		if (line[0] == '\n')
+		{
+                 	free(line);
+			continue;
+		}
+                if (characters == EOF)
+			return (ctrld(line));
+		newline = _reallocchar(line);
+		tokenarray = tokensplit(newline);
+		if (tokenarray == NULL)
+		{
+                 	free(line);
+			return (0);
+		}
+                executeprog(tokenarray, env, av);
+		free_all(line, newline, tokenarray);
+	}
+        free(line);
+	return (0);
+  }
+```
+###### Example usage
+
+```
 vagrant@vagrant-ubuntu-trusty-64:~/holbertonschool-low_level_programming/shelll$ ./hsh
 $ ls
 #README.md#  _getline.c~  build_ins.c	 holberton.h  no_file.c		     test_results
@@ -62,4 +107,6 @@ _freeops.c   _realloc.c   builtins.c	   main.c       preparation_functions
 _getenv.c    _strops.c	    ctrl.c	    man_shell    shelltest
 _getline.c   atoi.c	      executeprog.c  man_shell~   test_2
 $
+```
+### Authors
 Derek Kwok, Elena Serebryakova
