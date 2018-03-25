@@ -49,8 +49,7 @@ int cd_op(char **array, char **env)
 		if (chdir(_getenv("HOME", env)) == -1)
 		{
 			perror("./hsh");
-			perror("cd");
-			write(STDOUT_FILENO, "can't cd to home\n", 17);
+			write(STDOUT_FILENO, "cd: can't cd to home\n", 21);
 		}
 	}
 	else
@@ -61,6 +60,8 @@ int cd_op(char **array, char **env)
 		cwd[i++] = '/';
 		cwd[i] = '\0';
 		newdir = str_concat(cwd, array[1]);
+		if (newdir == NULL)
+			return (0);
 		if (chdir(newdir) == -1)
 		{
 			perror("./hsh");
@@ -72,7 +73,7 @@ int cd_op(char **array, char **env)
 }
 /**
  *env_op - handles env builtin
- *@env: environment varialbe
+ *@env: environment variable
  *
  *Return: 0 on success
  */

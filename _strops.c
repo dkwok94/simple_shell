@@ -66,6 +66,8 @@ int _strlen(char *buf)
 {
 	int i = 0;
 
+	if (buf == NULL)
+		return (-1);
 	while (buf[i] != '\0')
 	{
 		i++;

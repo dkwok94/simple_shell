@@ -36,6 +36,11 @@ int main(int ac, char **av, char **env)
 			return (ctrld(line));
 		newline = _reallocchar(line);
 		tokenarray = tokensplit(newline);
+		if (tokenarray == NULL)
+		{
+			free(line);
+			return (0);
+		}
 		executeprog(tokenarray, env, av);
 		free_all(line, newline, tokenarray);
 	}

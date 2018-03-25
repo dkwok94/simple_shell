@@ -11,6 +11,10 @@ char *_getenv(const char *name, char **env)
 	int i = 0;
 	int j = 0;
 
+	if (name == NULL)
+		return (NULL);
+	if (env == NULL || *env == NULL)
+		return (NULL);
 	while (env[i] != NULL)
 	{
 		while (env[i][j] == name[j])
@@ -23,6 +27,6 @@ char *_getenv(const char *name, char **env)
 		i++;
 		j = 0;
 	}
-	write(STDOUT_FILENO, "Environment variable not found", 30);
+	write(STDOUT_FILENO, "Not found in environment", 24);
 	return (NULL);
 }

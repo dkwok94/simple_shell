@@ -8,15 +8,16 @@
  */
 int check_builtins(char **array, char **env)
 {
+	if (array == NULL || *array == NULL)
+		return (1);
+	if (env == NULL || *env == NULL)
+		return (1);
 	if (_strcmp((array[0]), "exit") == 0)
 		return (exit_op(array));
-
 	else if (_strcmp((array[0]), "cd") == 0)
 		return (cd_op(array, env));
-
 	else if (_strcmp((array[0]), "env") == 0)
 		return (env_op(env));
-
 	else
 		return (1);
 }
@@ -35,12 +36,18 @@ int executeprog(char **array, char **env, char **argv)
 	int signal;
 	struct stat status;
 
+	if (array == NULL || *array == NULL)
+		return (-1);
+	if (env == NULL || *env == NULL)
+		return (-1);
+	if (argv == NULL || *argv == NULL)
+		return (-1);
 	if (check_builtins(array, env) == 0)
 		return (0);
 	my_pid = fork();
 	if (my_pid == -1)
 	{
-		write(STDOUT_FILENO, "Error", 5);
+		write(STDOUT_FILENO, "Error forking", 13);
 		return (-1);
 	}
 

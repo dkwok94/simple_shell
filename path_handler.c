@@ -13,13 +13,23 @@ char *path_handler(char *str, char **env)
 	path_t *list, *tmp;
 	struct stat st;
 
+	if (str == NULL)
+		return (NULL);
+	if (env == NULL || *env == NULL)
+		return (NULL);
 	path = _getenv("PATH", env);
+	if (path == NULL)
+	{
+		write(STDOUT_FILENO, "PATH not found", 14);
+		_exit(0);
+	}
 	list = create_ll(path);
 	if (list == NULL)
-		return (NULL);
+	{
+		write(STDOUT_FILENO, "Issues with PATH", 16);
+		_exit(0);
+	}
 	list = fill_list(path, list);
-	if (list == NULL)
-		return (NULL);
 	tmp = list;
 
 	while (tmp != NULL)
