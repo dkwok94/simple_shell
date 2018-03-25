@@ -10,14 +10,11 @@ The repository contains the following files:
 
 |   **File**   |   **Description**   |
 | -------------- | --------------------- |
-| \main.c | The main function |
+| main.c | The main function |
 | holberton.h   | Header file containing all function prototypes and struct declaration |
 | executeprog.c | Containing function, that execute a line of code in the shell as well as function, that checks for build-ins |
 | path_handler.c | Iterates through PATH variable and concatinates command into it |File	        Description
-main.c          The main function
-holberton.h    	Header file containing all function prototypes and struct declaration
-executeprog.c  	Containing function, that execute a line of code in the shell as well as function, that checks for build-ins
-path_handler.c  Iterates through PATH variable and concatinates command into it
+
 tokenspit.c     Splits a line into tokens and stores into a char array
 Function Descriptions
 Function Description
