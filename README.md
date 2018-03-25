@@ -1,15 +1,20 @@
-Simple_shell
-Description
+## Simple_shell
+### Description
 Shell is a command programming language that executes commands read from a terminal or a file.
 
-Environment
+### Environment
 Shell  was developed and tested on Ubuntu 14.04 LTS via Vagrant in VirtualBox.
 
 File Contents
 The repository contains the following files:
 
-File	        Description
-mian.c          The main function
+|   **File**   |   **Description**   |
+| -------------- | --------------------- |
+| \main.c | The main function |
+| holberton.h   | Header file containing all function prototypes and struct declaration |
+| executeprog.c | Containing function, that execute a line of code in the shell as well as function, that checks for build-ins |
+| path_handler.c | Iterates through PATH variable and concatinates command into it |File	        Description
+main.c          The main function
 holberton.h    	Header file containing all function prototypes and struct declaration
 executeprog.c  	Containing function, that execute a line of code in the shell as well as function, that checks for build-ins
 path_handler.c  Iterates through PATH variable and concatinates command into it
