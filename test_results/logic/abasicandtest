@@ -1,0 +1,2 @@
+true case && echo you should see this
+false case with bash error on next line && bash -c asdf && echo you should not see this

@@ -1,0 +1,1 @@
+hi&&echo hello&& false &&echo hiya && false|| echo howdy&&echo helo && false||false || echo greetings && false ||echo bonjour ||false && echo hello there && echo konbanwa||echo nope not this one&& false||echo last one for the road

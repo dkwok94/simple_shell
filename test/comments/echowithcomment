@@ -1,2 +1,0 @@
-#test echo with a comment after
-echo hello #should not echo this
