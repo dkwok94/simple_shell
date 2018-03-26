@@ -12,9 +12,16 @@ path_t *create_ll(char *str)
 	path_t *node, *head, *tmp, *end;
 
 	tmp = malloc(sizeof(path_t));
+	if (tmp == NULL)
+		return (NULL);
 	head = tmp;
 
 	end = malloc(sizeof(path_t));
+	if (end == NULL)
+	{
+		free(tmp);
+		return (NULL);
+	}
 	end->next = NULL;
 
 	while (str[i] != '\0')
@@ -27,6 +34,12 @@ path_t *create_ll(char *str)
 	while ((nodes - 2) > 0)
 	{
 		node = malloc(sizeof(path_t));
+		if (node == NULL)
+		{
+			free(tmp);
+			free(end);
+			return (NULL);
+		}
 		tmp->next = node;
 		tmp = tmp->next;
 		nodes--;

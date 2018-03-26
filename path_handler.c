@@ -35,6 +35,8 @@ char *path_handler(char *str, char **env)
 	while (tmp != NULL)
 	{
 		concat = str_concat(tmp->directory, str);
+		if (concat == NULL)
+			return (NULL);
 		if (stat(concat, &st) == 0)
 			return (concat);
 		tmp = tmp->next;

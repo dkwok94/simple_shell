@@ -49,11 +49,12 @@ char *_strdup(char *str)
 	if (string == NULL)
 		return (NULL);
 
-	while (i < length + 1)
+	while (*(str + i) != '\0')
 	{
 		*(string + i) = *(str + i);
 		i++;
 	}
+	*(string + i) = '\0';
 	return (string);
 }
 /**
