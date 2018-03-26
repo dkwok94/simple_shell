@@ -27,14 +27,19 @@ int main(int ac, char **av, char **env)
 			signal(SIGINT, ctrlc);
 		}
 		characters = getline(&line, &len, stdin);
+		if (characters == EOF || characters == -1)
+			return (ctrld(line));
 		if (line[0] == '\n')
 		{
 			free(line);
 			continue;
 		}
-		if (characters == EOF)
-			return (ctrld(line));
 		newline = _reallocchar(line);
+		if (newline == NULL)
+		{
+			free(line);
+			return (0);
+		}
 		tokenarray = tokensplit(newline);
 		if (tokenarray == NULL)
 		{
