@@ -3,17 +3,19 @@
  *check_builtins - implement exit, buit-in, that exits the shell
  *@array: the array of strings to execute
  *@env: the environment variable
+ *@line: user-entered input
+ *@newline: user-entered input without newline character
  *
  *Return: 0 when successfully running a builtin, 1 when builtin not found
  */
-int check_builtins(char **array, char **env)
+int check_builtins(char **array, char **env, char *line, char *newline)
 {
 	if (array == NULL || *array == NULL)
 		return (1);
 	if (env == NULL || *env == NULL)
 		return (1);
 	if (_strcmp((array[0]), "exit") == 0)
-		return (exit_op(array));
+		return (exit_op(array, line, newline));
 	else if (_strcmp((array[0]), "cd") == 0)
 		return (cd_op(array, env));
 	else if (_strcmp((array[0]), "env") == 0)
@@ -26,10 +28,12 @@ int check_builtins(char **array, char **env)
  *@array: the array of strings to execute
  *@env: the environment variable
  *@argv: the array of command line argument strings
+ *@line: user-entered input
+ *@nline: user-entered input with newline truncated
  *
  *Return: 0 on success, -1 on failure
  */
-int executeprog(char **array, char **env, char **argv)
+int executeprog(char **array, char **env, char **argv, char *line, char *nline)
 {
 	pid_t my_pid;
 	char *concat;
@@ -42,7 +46,7 @@ int executeprog(char **array, char **env, char **argv)
 		return (-1);
 	if (argv == NULL || *argv == NULL)
 		return (-1);
-	if (check_builtins(array, env) == 0)
+	if (check_builtins(array, env, line, nline) == 0)
 		return (0);
 	my_pid = fork();
 	if (my_pid == -1)

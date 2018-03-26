@@ -1,6 +1,6 @@
 .\" Manpage for Shell
 
-.TH man(3) "24 March 2018" "1.0" "shell man page"
+.TH man 3 "24 March 2018" "1.0" "shell man page"
 
 .SH NAME
     hsh - interface to the Unix system
@@ -9,11 +9,11 @@
     $ [command] [-flag ]
 
 .SH DESCRIPTION
-     A Shell provides you with an interface to the Unix  system. 
-     It gathers input from you and  executes  programs  based on 
+     A Shell provides you with an interface to the Unix  system.
+     It gathers input from you and  executes  programs  based on
      that input. When a program  finishes executing, it displays
      that program's output.
-     
+
 .SH SHOPTIONS
      cd [arg]
      Change  the  current directory  to arg. The shell parameter
@@ -24,13 +24,13 @@
      is set to the first one that is found.
         $ cd /usf/lb
 
-     env 
+     env
      Prints the current environment
 
-     exit 
-     Causes the shell to exit with the exit status  specified by 
-     n. If n is omitted then the exit status is that of the last 
-     command executed. (An end of file will  also exit  from the 
+     exit
+     Causes the shell to exit with the exit status  specified by
+     n. If n is omitted then the exit status is that of the last
+     command executed. (An end of file will  also exit  from the
      shell.)
 
      pwd
@@ -39,7 +39,7 @@
 .SH FILES
 
 .SH DESCRIPTION
-     
+
 .SH BUGS
      Not known
 

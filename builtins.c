@@ -2,16 +2,18 @@
 /**
  *exit_op - handles exit builtin
  *@array: the array of strings to execute
+ *@line: line of user-entered input
+ *@newline: user-entered lined with newline truncated
  *
  *Return: 0 upon success, or some specific exit code specified by user
  */
-int exit_op(char **array)
+int exit_op(char **array, char *line, char *newline)
 {
-	int num, j = 0;
+	int num, i = 0, j = 0;
 
 	if (array[1] == NULL)
 	{
-		free(array);
+		free_all(line, newline, array);
 		exit(0);
 	}
 
@@ -27,7 +29,12 @@ int exit_op(char **array)
 			write(STDOUT_FILENO, "\n", 1);
 			return (0);
 		}
-		free(array);
+		while (array[i] != NULL)
+		{
+			free(array[i]);
+			i++;
+		}
+		free_all(line, newline, array);
 		exit(num);
 	}
 }

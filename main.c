@@ -46,7 +46,7 @@ int main(int ac, char **av, char **env)
 			free(line);
 			return (0);
 		}
-		executeprog(tokenarray, env, av);
+		executeprog(tokenarray, env, av, line, newline);
 		free_all(line, newline, tokenarray);
 	}
 	free(line);
