@@ -8,6 +8,7 @@
  *
  *Return: 0 when successfully running a builtin, 1 when builtin not found
  */
+int commandcount = 0;
 int check_builtins(char **array, char **env, char *line, char *newline)
 {
 	if (array == NULL || *array == NULL)
@@ -46,6 +47,8 @@ int executeprog(char **array, char **env, char **argv, char *line, char *nline)
 		return (-1);
 	if (argv == NULL || *argv == NULL)
 		return (-1);
+	commandcount++;
+
 	if (check_builtins(array, env, line, nline) == 0)
 		return (0);
 	my_pid = fork();
@@ -60,15 +63,16 @@ int executeprog(char **array, char **env, char **argv, char *line, char *nline)
 		if (array[0][0] == '/')
 		{
 			if (stat(array[0], &status) == -1)
-				no_file_error(argv);
+				no_file_error(argv, array, commandcount);
 			execve(array[0], array, NULL);
 		}
 		else
 		{
 			concat = path_handler(array[0], env);
 			if (concat == NULL)
-				no_file_error(argv);
-			execve(concat, array, NULL);
+				no_file_error(argv, array, commandcount);
+			else
+				execve(concat, array, NULL);
 		}
 	}
 	else
