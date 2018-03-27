@@ -1,1 +1,0 @@
-hi && echo hello && false && echo hiya && false || echo howdy && echo helo && false || false || echo bonjour || false && echo welcome && echo konbanwa || echo nope not this one && false || echo one last hello there

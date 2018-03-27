@@ -1,2 +1,0 @@
-hello |& echo hi
-hello &| echo hi

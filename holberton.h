@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <errno.h>
-#define DELIMS " "
+#define DELIMS " \0"
 /**
  *struct path_s - linked list structure for PATH variable
  *@directory: directory to search
@@ -39,12 +39,12 @@ void free_tokens(char **tokenarray);
 void free_all(char *line, char *newline, char **tokenarray);
 int ctrld(char *line);
 void ctrlc(int signum);
-void no_file_error(char **argv, char **array, int commandcount);
+void no_file_er(char **argv, char **array, int cc, char *line, char *nline);
 int exit_op(char **array, char *line, char *newline);
 int cd_op(char **array, char **env);
 int env_op(char **env);
 char **tokensplit(char *line);
-int executeprog(char **array, char **env, char **argv, char *line, char *nline);
+int executeprog(char **array, char **env, char **av, char *line, char *nline);
 char *_getenv(const char *name, char **env);
 char **_realloccharss(char **ptr, int n);
 char *_reallocchar(char *ptr);

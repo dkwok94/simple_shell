@@ -8,7 +8,7 @@
 char **tokensplit(char *line)
 {
 	int i = 0;
-	int tokencount = 1;
+	int tokencount = 0;
 	char **tokenarray;
 	char *token, *tokencopy;
 
@@ -22,7 +22,7 @@ char **tokensplit(char *line)
 	}
 
 	i = 0;
-	tokenarray = malloc(sizeof(char *) * tokencount + 1);
+	tokenarray = malloc(sizeof(char *) * (tokencount + 1));
 	if (tokenarray == NULL)
 		return (NULL);
 	token = strtok(line, DELIMS);

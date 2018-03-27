@@ -38,10 +38,13 @@ char *path_handler(char *str, char **env)
 		if (concat == NULL)
 			return (NULL);
 		if (stat(concat, &st) == 0)
+		{
+			free_list(list);
 			return (concat);
+		}
 		tmp = tmp->next;
+		free(concat);
 	}
-	free(list);
-	free(concat);
+	free_list(list);
 	return (NULL);
 }
