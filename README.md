@@ -60,7 +60,7 @@ The repository contains the following files:
 |char *path_handler(char *str, char **env)| iterates through $PATH variable end concatenates command into it |
 
 ### Usage and Installation
-Clone the repository, compile with comliation flags, listed below, then run the executable.
+Clone the repository, compile with compilation flags, listed below, then run the executable.
 ```
 $ git clone https://github.com/dkwok94/simple_shell.git
 ```
