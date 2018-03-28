@@ -122,7 +122,7 @@ _getline.c   atoi.c	      executeprog.c  man_shell~   test_2
 $
 ```
 ```
-vagrant@vagrant-ubuntu-trusty-64:~/holbertonschool-low_level_programming/shelll$ ./hsh
+vagrant:simple_shell$ ./hsh
 $ pwd
 /home/vagrant/simple_shell
 $
