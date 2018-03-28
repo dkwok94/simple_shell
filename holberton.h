@@ -22,7 +22,7 @@ typedef struct path_s
 	char *directory;
 	struct path_s *next;
 } path_t;
-
+void printprompt(void);
 int _strlen(char *buf);
 int printpath(char *path);
 void print_path(char *str);
@@ -39,12 +39,12 @@ void free_tokens(char **tokenarray);
 void free_all(char *line, char *newline, char **tokenarray);
 int ctrld(char *line);
 void ctrlc(int signum);
-void no_file_er(char **argv, char **array, int cc, char *line, char *nline);
+void no_file_er(char **argv, char **ar, int cmdnum, char *line, char *nline);
 int exit_op(char **array, char *line, char *newline);
 int cd_op(char **array, char **env);
 int env_op(char **env);
 char **tokensplit(char *line);
-int executeprog(char **array, char **env, char **av, char *line, char *nline);
+int exec(char **ar, char **env, char **av, char *line, char *nline, int cdnum);
 char *_getenv(const char *name, char **env);
 char **_realloccharss(char **ptr, int n);
 char *_reallocchar(char *ptr);

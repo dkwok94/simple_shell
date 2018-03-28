@@ -24,3 +24,14 @@ void ctrlc(int signum)
 
 	write(STDOUT_FILENO, "\n$ ", 3);
 }
+
+/**
+ *printprompt - prints the shell prompt
+ *
+ *Return: void
+ */
+void printprompt(void)
+{
+	write(STDOUT_FILENO, "$ ", 2);
+	signal(SIGINT, ctrlc);
+}
