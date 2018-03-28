@@ -2,32 +2,25 @@
 #
 # simple test with ls to check if the shell can find ls in the PATH
 
-command="ASDF=hello
-FSDA=world
-QWER=goodbye
-REWQ=world
-echo $ASDF$FDSA$QWER$REWQ"
-tmp_file="testing_custom_$RANDOM"
-tmp_file2="testing_real_$RANDOM"
+cd $LSDIR
 
-# create a pseudo random file
-touch $tmp_file
-# send commands
-echo "$command" | $SHELL > $tmp_file 2> /dev/null &
-echo "$command" | $TSHELL > $tmp_file2 2> /dev/null &
+grep -rq SIGINT
+
+ret=$?
 
 # wait a little bit
 $SLEEP $SLEEPSECONDS
 
 # check the result
-if diff "$tmp_file" "$tmp_file2" >/dev/null; then
+
+if [[ $ret -eq 0 ]]; then
 	   print_ok
-	   l=`expr $l + 1`
+   	   l=`expr $l + 1`
 else
-	   print_ko
-	  	   if [[ $COUNTADV -eq 1 ]]; then
-	   		l=`expr $l + 1`
+	  	print_ko
+	   if [[ $COUNTADV -eq 1 ]]; then
 	   		k=`expr $k + 1`
+	   		l=`expr $l + 1`
 		fi
 	   if [[ $SHOWERRORS -eq 1 ]]; then
 	   	echo ""
@@ -43,6 +36,8 @@ else
 	    echo -e "[\033[31m************************\033[37m]"
 	   fi
 fi
+
+>/dev/null cd -
 
 # clean up
 stop_shell

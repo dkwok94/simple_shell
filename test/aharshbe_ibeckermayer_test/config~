@@ -6,15 +6,15 @@
 #TO CHANGE: 
 #SHELL should be your shell's directory and TSHELL is the shell to test #against
 #------------------------------------------------------------------------------
-SHELL="../../hsh"
+SHELL="../hsh"
 
 	#example: SHELL="../simple_shell/h"
 #------------------------------------------------------------------------------
-LSDIR="../.."
+LSDIR=".."
 
 	#exmaple: LSDIR="./HolbertonRepos/bash_stuff/simple_shell"
 #------------------------------------------------------------------------------
-bettycheckerdir="../.."
+bettycheckerdir=".."
 
 	#example: bettycheckerdir="./HolbertonRepos/bash_stuff/simple_shell"
 #------------------------------------------------------------------------------

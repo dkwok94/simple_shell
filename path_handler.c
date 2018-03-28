@@ -31,10 +31,12 @@ char *path_handler(char *str, char **env)
 	}
 	list = fill_list(path, list);
 	tmp = list;
-
 	while (tmp != NULL)
 	{
-		concat = str_concat(tmp->directory, str);
+		if (path[0] == ':')
+			concat = str_concat("./", str);
+		else
+			concat = str_concat(tmp->directory, str);
 		if (concat == NULL)
 			return (NULL);
 		if (stat(concat, &st) == 0)
