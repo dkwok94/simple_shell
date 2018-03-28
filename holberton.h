@@ -22,6 +22,7 @@ typedef struct path_s
 	char *directory;
 	struct path_s *next;
 } path_t;
+
 void printprompt(void);
 int _strlen(char *buf);
 int printpath(char *path);
@@ -49,4 +50,5 @@ char *_getenv(const char *name, char **env);
 char **_realloccharss(char **ptr, int n);
 char *_reallocchar(char *ptr);
 char *path_handler(char *str, char **env);
+
 #endif

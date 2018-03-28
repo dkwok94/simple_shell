@@ -1,3 +1,5 @@
+#define _GNU_SOURCE
+#include <stdio.h>
 #include "holberton.h"
 /**
   *main - entry point for shell program
@@ -11,13 +13,14 @@
   */
 int main(int ac, char **av, char **env)
 {
-	(void)ac, (void)av;
-	char *line, *newline;
-	size_t len;
-	ssize_t characters = 0;
+	char *line;
+	char *newline;
+	size_t len = 0;
+	ssize_t characters;
 	char **tokenarray;
 	int cmdnum = 0;
 
+	(void)ac, (void)av;
 	while (1)
 	{
 		line = NULL;
