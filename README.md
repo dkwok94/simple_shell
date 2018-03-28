@@ -13,11 +13,18 @@ The repository contains the following files:
 | -------------- | --------------------- |
 | main.c | The main function |
 | atoi.c | Converts a string to an integer |
-| AUThORS | Contains info about authors of the project|
+| AUTHORS | Contains info about authors of the project |
 | builtins.c | Handels exit, cd and env buil-in commands |
-| holberton.h   | Header file containing all function prototypes and struct declaration |
+| ctrl.c| Actions for when Ctrl+D is entered into the shell |
 | executeprog.c | Containing function, that execute a line of code in the shell as well as function, that checks for build-ins |
+| holberton.h   | Header file containing all function prototypes and struct declaration |
+| _freeops.c | Freeing all varibles used as well as tokens in a tokenarray and a linked list |
+| _getenv.c | Looks at environment variable and returns a pointer to string |
+| man_1_simple_shell | Man page for the created shell |
+| no_file.c | Write an error message, if file not found |
 | path_handler.c | Iterates through PATH variable and concatinates command into it |
+| _realloc.c | Reallocates memory for an array |
+| _strops.c | Contains functions, needed for the string manipulations |
 | tokenspit.c | Splits a line into tokens and stores into a char array |
 
 ### Function Descriptions
