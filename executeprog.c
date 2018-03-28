@@ -24,30 +24,30 @@ int check_builtins(char **array, char **env, char *line, char *newline)
 		return (1);
 }
 /**
- *executeprog - executes a line of code in the shell
- *@array: the array of strings to execute
+ *exec - executes a line of code in the shell
+ *@ar: the array of strings to execute
  *@env: the environment variable
  *@av: the array of command line argument strings
  *@line: user-entered input
  *@nline: user-entered input with newline truncated
+ *@cdnum: the number of commands entered by the user - for error handling
  *
  *Return: 0 on success, -1 on failure
  */
-int executeprog(char **array, char **env, char **av, char *line, char *nline)
+int exec(char **ar, char **env, char **av, char *line, char *nline, int cdnum)
 {
 	pid_t my_pid;
 	char *concat;
-	int signal, ccount = 0;
+	int signal;
 	struct stat status;
 
-	if (array == NULL || *array == NULL)
+	if (ar == NULL || *ar == NULL)
 		return (-1);
 	if (env == NULL || *env == NULL)
 		return (-1);
 	if (av == NULL || *av == NULL)
 		return (-1);
-	ccount++;
-	if (check_builtins(array, env, line, nline) == 0)
+	if (check_builtins(ar, env, line, nline) == 0)
 		return (0);
 	my_pid = fork();
 	if (my_pid == -1)
@@ -57,19 +57,19 @@ int executeprog(char **array, char **env, char **av, char *line, char *nline)
 	}
 	if (my_pid == 0)
 	{
-		if (array[0][0] == '/')
+		if (ar[0][0] == '/')
 		{
-			if (stat(array[0], &status) == -1)
-				no_file_er(av, array, ccount, line, nline);
-			execve(array[0], array, NULL);
+			if (stat(ar[0], &status) == -1)
+				no_file_er(av, ar, cdnum, line, nline);
+			execve(ar[0], ar, NULL);
 		}
 		else
 		{
-			concat = path_handler(array[0], env);
+			concat = path_handler(ar[0], env);
 			if (concat == NULL)
-				no_file_er(av, array, ccount, line, nline);
+				no_file_er(av, ar, cdnum, line, nline);
 			else
-				execve(concat, array, NULL);
+				execve(concat, ar, NULL);
 		}
 	}
 	else

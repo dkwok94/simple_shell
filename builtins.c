@@ -22,7 +22,7 @@ int exit_op(char **array, char *line, char *newline)
 		num = _atoi(array[1]);
 		if (num == -1)
 		{
-			write(STDOUT_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
+			write(STDERR_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
 			while (array[1][j] != '\0')
 				j++;
 			write(STDOUT_FILENO, array[1], j);
@@ -56,7 +56,7 @@ int cd_op(char **array, char **env)
 		if (chdir(_getenv("HOME", env)) == -1)
 		{
 			perror("./hsh");
-			write(STDOUT_FILENO, "cd: can't cd to home\n", 21);
+			write(STDERR_FILENO, "cd: can't cd to home\n", 21);
 		}
 	}
 	else
@@ -72,7 +72,7 @@ int cd_op(char **array, char **env)
 		if (chdir(newdir) == -1)
 		{
 			perror("./hsh");
-			write(STDOUT_FILENO, "can't cd into directory\n", 24);
+			write(STDERR_FILENO, "can't cd into directory\n", 24);
 		}
 		free(newdir);
 	}

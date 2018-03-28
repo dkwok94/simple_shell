@@ -16,16 +16,15 @@ int main(int ac, char **av, char **env)
 	size_t len;
 	ssize_t characters = 0;
 	char **tokenarray;
+	int cmdnum = 0;
 
 	while (1)
 	{
 		line = NULL;
 		len = 0;
+		cmdnum++;
 		if (isatty(0) == 1)
-		{
-			write(STDOUT_FILENO, "$ ", 2);
-			signal(SIGINT, ctrlc);
-		}
+			printprompt();
 		characters = getline(&line, &len, stdin);
 		if (characters == EOF || characters == -1)
 			return (ctrld(line));
@@ -46,7 +45,7 @@ int main(int ac, char **av, char **env)
 			free(line);
 			return (0);
 		}
-		executeprog(tokenarray, env, av, line, newline);
+		exec(tokenarray, env, av, line, newline, cmdnum);
 		free_all(line, newline, tokenarray);
 	}
 	free(line);
