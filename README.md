@@ -12,6 +12,8 @@ The repository contains the following files:
 |   **File**   |   **Description**   |
 | -------------- | --------------------- |
 | main.c | The main function |
+| atoi.c | Converts a string to an integer |
+| AUTORS | Contains info about autors of the project|
 | holberton.h   | Header file containing all function prototypes and struct declaration |
 | executeprog.c | Containing function, that execute a line of code in the shell as well as function, that checks for build-ins |
 | path_handler.c | Iterates through PATH variable and concatinates command into it |
