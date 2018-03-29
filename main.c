@@ -29,7 +29,7 @@ int main(int ac, char **av, char **env)
 			printprompt();
 		characters = getline(&line, &len, stdin);
 		if (characters == EOF || characters == -1)
-			return (ctrld(line));
+			ctrld(line);
 		if (line[0] == '\n')
 		{
 			free(line);

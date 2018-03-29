@@ -10,7 +10,7 @@ int ctrld(char *line)
 	free(line);
 	if (isatty(0) == 1)
 		write(STDOUT_FILENO, "\n", 1);
-	return (0);
+	_exit(0);
 }
 /**
  *ctrlc - control C handler
