@@ -91,11 +91,15 @@ char *str_concat(char *s1, char *s2)
 	if (s1 == NULL)
 	{
 		s1 = malloc(sizeof(char));
+		if (s1 == NULL)
+			return (NULL);
 		*s1 = '\0';
 	}
 	if (s2 == NULL)
 	{
 		s2 = malloc(sizeof(char));
+		if (s2 == NULL)
+			return (NULL);
 		*s2 = '\0';
 	}
 
@@ -104,7 +108,11 @@ char *str_concat(char *s1, char *s2)
 
 	concatenate = malloc(sizeof(char) * (lengths1 + lengths2 + 1));
 	if (concatenate == NULL)
+	{
+		free(s1);
+		free(s2);
 		return (NULL);
+	}
 
 	return (_concat(concatenate, s1, s2));
 }

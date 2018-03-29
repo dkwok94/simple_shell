@@ -60,9 +60,7 @@ path_t *fill_list(char *str, path_t *list)
 	char *dir;
 	int i = 0, j = 0, stcnt = 0, dirlen = 0;
 
-	if (str ==  NULL)
-		return (NULL);
-	if (list == NULL)
+	if (str ==  NULL || list == NULL)
 		return (NULL);
 	head = list;
 	ptr = head;

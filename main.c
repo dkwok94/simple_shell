@@ -13,8 +13,7 @@
   */
 int main(int ac, char **av, char **env)
 {
-	char *line;
-	char *newline;
+	char *line, *newline;
 	size_t len = 0;
 	ssize_t characters;
 	char **tokenarray;
@@ -46,6 +45,7 @@ int main(int ac, char **av, char **env)
 		if (tokenarray == NULL)
 		{
 			free(line);
+			free(newline);
 			return (0);
 		}
 		exec(tokenarray, env, av, line, newline, cmdnum);
