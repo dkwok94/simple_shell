@@ -14,7 +14,7 @@ int exit_op(char **array, char *line, char *newline)
 	if (array[1] == NULL)
 	{
 		free_all(line, newline, array);
-		exit(0);
+		_exit(0);
 	}
 
 	else
