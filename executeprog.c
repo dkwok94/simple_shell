@@ -1,24 +1,25 @@
 #include "holberton.h"
 /**
  *check_builtins - implement exit, buit-in, that exits the shell
- *@array: the array of strings to execute
+ *@ar: the array of strings to execute
  *@env: the environment variable
  *@line: user-entered input
  *@newline: user-entered input without newline character
+ *@cdnum: the number of commands entered by the user
  *
  *Return: 0 when successfully running a builtin, 1 when builtin not found
  */
-int check_builtins(char **array, char **env, char *line, char *newline)
+int check_builtins(char **ar, char **env, char *line, char *newline, int cdnum)
 {
-	if (array == NULL || *array == NULL)
+	if (ar == NULL || *ar == NULL)
 		return (1);
 	if (env == NULL || *env == NULL)
 		return (1);
-	if (_strcmp((array[0]), "exit") == 0)
-		return (exit_op(array, line, newline));
-	else if (_strcmp((array[0]), "cd") == 0)
-		return (cd_op(array, env));
-	else if (_strcmp((array[0]), "env") == 0)
+	if (_strcmp((ar[0]), "exit") == 0)
+		return (exit_op(ar, line, newline, cdnum));
+	else if (_strcmp((ar[0]), "cd") == 0)
+		return (cd_op(ar, env));
+	else if (_strcmp((ar[0]), "env") == 0)
 		return (env_op(env));
 	else
 		return (1);
@@ -41,13 +42,11 @@ int exec(char **ar, char **env, char **av, char *line, char *nline, int cdnum)
 	int signal;
 	struct stat status;
 
-	if (ar == NULL || *ar == NULL)
+	if (ar == NULL || *ar == NULL || av == NULL || *av == NULL)
 		return (-1);
 	if (env == NULL || *env == NULL)
 		return (-1);
-	if (av == NULL || *av == NULL)
-		return (-1);
-	if (check_builtins(ar, env, line, nline) == 0)
+	if (check_builtins(ar, env, line, nline, cdnum) == 0)
 		return (0);
 	my_pid = fork();
 	if (my_pid == -1)

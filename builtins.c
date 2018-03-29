@@ -4,12 +4,14 @@
  *@array: the array of strings to execute
  *@line: line of user-entered input
  *@newline: user-entered lined with newline truncated
+ *@cdnum: the number of commands entered by the user
  *
  *Return: 0 upon success, or some specific exit code specified by user
  */
-int exit_op(char **array, char *line, char *newline)
+int exit_op(char **array, char *line, char *newline, int cdnum)
 {
-	int num, i = 0, j = 0;
+	int num, j = 0;
+	char *cmdnum;
 
 	if (array[1] == NULL)
 	{
@@ -22,17 +24,15 @@ int exit_op(char **array, char *line, char *newline)
 		num = _atoi(array[1]);
 		if (num == -1)
 		{
-			write(STDERR_FILENO, "./hsh: 1: exit: Illegal number: ", 32);
+			cmdnum = printint(cdnum);
+			write(STDERR_FILENO, "./hsh: ", 7);
+			write(STDERR_FILENO, cmdnum, _strlen(cmdnum));
+			write(STDERR_FILENO, ": exit: Illegal number: ", 24);
 			while (array[1][j] != '\0')
 				j++;
 			write(STDOUT_FILENO, array[1], j);
 			write(STDOUT_FILENO, "\n", 1);
 			return (0);
-		}
-		while (array[i] != NULL)
-		{
-			free(array[i]);
-			i++;
 		}
 		free_all(line, newline, array);
 		exit(num);

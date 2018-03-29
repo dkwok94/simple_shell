@@ -41,7 +41,7 @@ void free_all(char *line, char *newline, char **tokenarray);
 int ctrld(char *line);
 void ctrlc(int signum);
 void no_file_er(char **argv, char **ar, int cmdnum, char *line, char *nline);
-int exit_op(char **array, char *line, char *newline);
+int exit_op(char **array, char *line, char *newline, int cdnum);
 int cd_op(char **array, char **env);
 int env_op(char **env);
 char **tokensplit(char *line);
