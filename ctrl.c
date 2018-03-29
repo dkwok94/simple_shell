@@ -8,9 +8,9 @@
 int ctrld(char *line)
 {
 	free(line);
-	if (isatty(0) == 1)
+	if (isatty(STDIN_FILENO) == 1)
 		write(STDOUT_FILENO, "\n", 1);
-	_exit(0);
+	return (0);
 }
 /**
  *ctrlc - control C handler
@@ -33,5 +33,4 @@ void ctrlc(int signum)
 void printprompt(void)
 {
 	write(STDOUT_FILENO, "$ ", 2);
-	signal(SIGINT, ctrlc);
 }

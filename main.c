@@ -25,11 +25,12 @@ int main(int ac, char **av, char **env)
 		line = NULL;
 		len = 0;
 		cmdnum++;
-		if (isatty(0) == 1)
+		if (isatty(STDIN_FILENO) == 1)
 			printprompt();
+		signal(SIGINT, ctrlc);
 		characters = getline(&line, &len, stdin);
 		if (characters == EOF || characters == -1)
-			ctrld(line);
+			return (ctrld(line));
 		if (line[0] == '\n')
 		{
 			free(line);
@@ -51,6 +52,4 @@ int main(int ac, char **av, char **env)
 		exec(tokenarray, env, av, line, newline, cmdnum);
 		free_all(line, newline, tokenarray);
 	}
-	free(line);
-	return (0);
 }

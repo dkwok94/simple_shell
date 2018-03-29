@@ -81,7 +81,7 @@ int main(int ac, char **av, char **env)
                 line = NULL;
                 len = 0;
                 cmdnum++;
-                if (isatty(0) == 1)
+                if (isatty(STDIN_FILENO) == 1)
                         printprompt();
                 characters = getline(&line, &len, stdin);
                 if (characters == EOF || characters == -1)
