@@ -61,6 +61,8 @@ int exec(char **ar, char **env, char **av, char *line, char *nline, int cdnum)
 		{
 			if (stat(ar[0], &status) == -1)
 				no_file_er(av, ar, cdnum, line, nline);
+			if (access(ar[0], X_OK) == -1)
+				no_file_er(av, ar, cdnum, line, nline);
 			execve(ar[0], ar, NULL);
 		}
 		else
