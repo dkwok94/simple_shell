@@ -12,7 +12,7 @@ char **_realloccharss(char **ptr, int n)
 	int newsize;
 	char **newptr;
 
-	if (ptr == NULL)
+	if (ptr == NULL || *ptr == NULL)
 		return (NULL);
 
 	while (*(ptr + i) != NULL)

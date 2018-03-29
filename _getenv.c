@@ -11,9 +11,7 @@ char *_getenv(const char *name, char **env)
 	int i = 0;
 	int j = 0;
 
-	if (name == NULL)
-		return (NULL);
-	if (env == NULL || *env == NULL)
+	if (name == NULL || env == NULL || *env == NULL)
 		return (NULL);
 	while (env[i] != NULL)
 	{

@@ -13,9 +13,7 @@ char *path_handler(char *str, char **env)
 	path_t *list, *tmp;
 	struct stat st;
 
-	if (str == NULL)
-		return (NULL);
-	if (env == NULL || *env == NULL)
+	if (str == NULL || env == NULL || *env == NULL)
 		return (NULL);
 	path = _getenv("PATH", env);
 	if (path == NULL)
