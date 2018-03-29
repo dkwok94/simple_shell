@@ -9,7 +9,7 @@
 #include <stdlib.h>
 #include <signal.h>
 #include <errno.h>
-#define DELIMS " \0"
+#define DELIMS " \t\0"
 /**
  *struct path_s - linked list structure for PATH variable
  *@directory: directory to search
