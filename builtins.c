@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "dhk.h"
 /**
  *exit_op - handles exit builtin
  *@array: the array of strings to execute

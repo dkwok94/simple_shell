@@ -1,9 +1,9 @@
 # Welcome to the I&A Checker ;)
-## It works very similar Holberton's shell checker found [here](https://github.com/holbertonschool/0x15.c/).
+## It works very similar DHK's shell checker found [here](https://github.com/dhkschool/0x15.c/).
 
 ### To get startd, you'll need to modify some settings in the `config` file: 
 Change `SHELL` to the directory where your shell executable is, for example:
-`SHELL="../../HolbertonRepos/bash_stuff/simple_shell/V3/h"`
+`SHELL="../../DHKRepos/bash_stuff/simple_shell/V3/h"`
 
 !! Attention !!
 Not changing the SHELL variable will restult in false tests.
@@ -18,7 +18,7 @@ Not changing the SHELL variable will restult in false tests.
 
 ### If you need to, you can debug your code by setting `SHOWERRORS`to `1`:
 	* Showing errors is off by default (to keep things less cluttered)
-* !! Please keep in mind only the checks in `I&ATests` and `Z_Advanced` will display detailed debug information because we didn't write the scripts by Holberton
+* !! Please keep in mind only the checks in `I&ATests` and `Z_Advanced` will display detailed debug information because we didn't write the scripts by DHK
 
 ### To execute the checker, just type `./checker.bash` in your terminal from the directory that contains your clone:
 * As a side note, please don't clone this checker into your source directory for your shell, the best place to clone is a seperate folder in your HOME dir or Desktop

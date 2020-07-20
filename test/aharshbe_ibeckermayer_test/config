@@ -12,11 +12,11 @@ SHELL="../../hsh"
 #------------------------------------------------------------------------------
 LSDIR="../.."
 
-	#exmaple: LSDIR="./HolbertonRepos/bash_stuff/simple_shell"
+	#exmaple: LSDIR="./DHKRepos/bash_stuff/simple_shell"
 #------------------------------------------------------------------------------
 bettycheckerdir="../.."
 
-	#example: bettycheckerdir="./HolbertonRepos/bash_stuff/simple_shell"
+	#example: bettycheckerdir="./DHKRepos/bash_stuff/simple_shell"
 #------------------------------------------------------------------------------
 TSHELL="/bin/sh"
 

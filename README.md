@@ -17,7 +17,7 @@ The repository contains the following files:
 |builtins.c | Handles exit, cd and env built-in commands |
 |ctrl.c| Actions for when Ctrl+D and Ctrl+C is entered into the shell |
 |executeprog.c | Containing function, that execute a line of code in the shell as well as a function that checks for build-ins |
-|holberton.h   | Header file containing all function prototypes and struct declarations |
+|dhk.h   | Header file containing all function prototypes and struct declarations |
 |_freeops.c | Freeing all varibles used as well as tokens in a tokenarray and a linked list |
 |_getenv.c | Looks at environment variable and returns a pointer to string that matches |
 |man_1_simple_shell | Man page for the created shell |
@@ -112,9 +112,9 @@ int main(int ac, char **av, char **env)
 ###### Example usage
 
 ```
-vagrant@vagrant-ubuntu-trusty-64:~/holbertonschool-low_level_programming/shelll$ ./hsh
+vagrant@vagrant-ubuntu-trusty-64:~/dhkschool-low_level_programming/shelll$ ./hsh
 $ ls
-#README.md#  _getline.c~  build_ins.c	 holberton.h  no_file.c		     test_results
+#README.md#  _getline.c~  build_ins.c	 dhk.h  no_file.c		     test_results
 README.md    _llops.c	    build_ins.c~  hsh	            path_handler.c        tokensplit.c
 _freeops.c   _realloc.c   builtins.c	   main.c       preparation_functions
 _getenv.c    _strops.c	    ctrl.c	    man_shell    shelltest
@@ -128,7 +128,7 @@ $ pwd
 $
 ```
 ```
-vagrant@vagrant-ubuntu-trusty-64:~/holbertonschool-low_level_programming/shelll$ ./hsh
+vagrant@vagrant-ubuntu-trusty-64:~/dhkschool-low_level_programming/shelll$ ./hsh
 $ env
 XDG_SESSION_ID=2
 TERM=cygwin

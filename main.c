@@ -1,6 +1,6 @@
 #define _GNU_SOURCE
 #include <stdio.h>
-#include "holberton.h"
+#include "dhk.h"
 /**
   *main - entry point for shell program
   *@ac: the number of arguments passed

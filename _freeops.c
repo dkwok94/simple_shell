@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "dhk.h"
 /**
  *free_all - frees all of the variables used
  *@line: the original line entered by user

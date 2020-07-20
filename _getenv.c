@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "dhk.h"
 /**
  *_getenv - looks at environment variable and returns a pointer to string
  *@name: the name of the environmental variable

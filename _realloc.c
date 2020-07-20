@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "dhk.h"
 /**
  *_realloccharss - reallocates memory for char**
  *@ptr: a pointer to an array

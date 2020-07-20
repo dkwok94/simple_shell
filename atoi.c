@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "dhk.h"
 /**
  *findtensplaces - finds the multiplication factor of tens
  *@i: the index of where a number starts in the string

@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "dhk.h"
 /**
  *check_builtins - implement exit, buit-in, that exits the shell
  *@ar: the array of strings to execute

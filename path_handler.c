@@ -1,4 +1,4 @@
-#include "holberton.h"
+#include "dhk.h"
 /**
  *path_handler - iterates through PATH variable and concatenates
  *command into it
